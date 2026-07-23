@@ -1,0 +1,113 @@
+aid: mettle
+name: Mettle
+review:
+  question: Does Mettle expose a documented, live public UK Open Banking API surface, and what is its authentication model and spec provenance?
+  answer: true
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Mettle is a NatWest Group digital business-banking brand and does not run its
+    own standalone developer portal. Its APIs are published through NatWest Group's
+    "Bank of APIs" platform (www.bankofapis.com), which hosts brand-specific
+    documentation for Mettle under the NatWest Group Open Banking product set. Four
+    UK Open Banking / OBIE-conformant surfaces are documented for Mettle: a public,
+    unsecured Open Data (Product) API describing its business current accounts, and
+    the FAPI-secured Read/Write family - Account & Transaction Information (AIS),
+    Payment Initiation (PIS), and Confirmation of Funds (CBPII).
+
+    A live production gateway was confirmed at https://api.openbanking.prd-mettle.co.uk
+    (resolving to an AWS eu-west-2 istio public gateway). Requests to the OBIE
+    paths on that host return HTTP 401 {"error":"invalid_client"}, confirming a real,
+    reachable FAPI-secured gateway that enforces client authentication - consistent
+    with OAuth2/OIDC + mutual-TLS + PSD2 strong customer authentication using
+    OBIE/eIDAS certificates onboarded via the Bank of APIs portal. The documentation
+    host docs.openbanking.prd-mettle.co.uk issues a 301 redirect to
+    www.bankofapis.com/products?brandCode=mettle.
+
+    An OPEN DATA endpoint returning a public 200 could NOT be independently confirmed:
+    the Product/Open Data API is documented as public and unsecured, but the only live
+    Mettle host found (api.openbanking.prd-mettle.co.uk) answered the OBIE Open Data
+    paths (e.g. /open-banking/v2.3/business-current-accounts) with 401 rather than a
+    200 JSON payload, and no separate unsecured open-data host (api.mettle.co.uk,
+    openbanking.mettle.co.uk) resolves. The Open Data surface is therefore represented
+    as documented/standard but its public base URL is UNVERIFIED. Mettle is a
+    challenger/digital-only brand, not one of the CMA9 mandated banks.
+  authModel:
+    standard: OBIE Read/Write API Standard (UK Open Banking), OBIE Open Data API Standard
+    protocols:
+    - FAPI OAuth2 / OpenID Connect
+    - Mutual-TLS (mTLS) client authentication
+    - PSD2 Strong Customer Authentication (SCA)
+    - Dynamic Client Registration with OBIE / eIDAS certificates
+    openDataAuth: Documented as public and unsecured; live 200 not independently confirmed
+  specProvenance: |
+    The only OpenAPI harvested (openapi/mettle-open-data-api-openapi.json) is the
+    SHARED OBIE Open Data API specification (Swagger 2.0, version v1.3) taken verbatim
+    from github.com/OpenBankingUK/opendata-api-spec-compiled - it is the industry
+    standard Mettle's public Product API conforms to, NOT a Mettle-proprietary
+    contract. No Mettle-branded/proprietary OpenAPI was publicly downloadable; the
+    Read/Write (AIS/PIS/CBPII) surfaces are represented as documented APIs pointing
+    at the Bank of APIs brand documentation, without harvested per-bank spec files.
+  transports:
+  - protocol: REST
+    scheme: https
+    baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/aisp
+    documented: true
+    note: Live gateway confirmed (HTTP 401 invalid_client without client auth); OBIE Read/Write AIS.
+  - protocol: REST
+    scheme: https
+    baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/pisp
+    documented: true
+    note: OBIE Read/Write Payment Initiation; FAPI-secured.
+  - protocol: REST
+    scheme: https
+    baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/cbpii
+    documented: true
+    note: OBIE Read/Write Confirmation of Funds; FAPI-secured.
+  - protocol: REST
+    scheme: https
+    baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
+    documented: true
+    note: OBIE Open Data (Product) API; documented as public/unsecured but a public 200 was not confirmed (host returned 401 on these paths).
+  probes:
+  - url: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3/products
+    status: 401
+    note: '{"error": "invalid_client"} - live FAPI gateway, AWS eu-west-2 istio public NLB.'
+  - url: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3/business-current-accounts
+    status: 401
+    note: Open Data path also gated behind client auth on this host.
+  - url: https://docs.openbanking.prd-mettle.co.uk/registering
+    status: 301
+    note: Redirects to https://www.bankofapis.com/products?brandCode=mettle
+  - url: https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+    status: 200
+    note: Bank of APIs product/open-data documentation for Mettle.
+  - url: https://www.bankofapis.com/products/accounts/documentation/mettle
+    status: 200
+    note: AIS documentation for Mettle.
+  - url: https://www.bankofapis.com/products/payments/documentation/mettle
+    status: 200
+    note: PIS documentation for Mettle.
+  - url: https://www.bankofapis.com/products/card-based-payments/documentation/mettle
+    status: 200
+    note: CBPII documentation for Mettle.
+  - url: https://www.mettle.co.uk/
+    status: 200
+    note: Corporate website.
+sources:
+- url: https://www.bankofapis.com/
+  type: DeveloperPortal
+  note: NatWest Group "Bank of APIs" platform hosting Mettle's Open Banking documentation.
+- url: https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  type: Documentation
+  note: Mettle Open Data / Product API documentation.
+- url: https://github.com/OpenBankingUK/opendata-api-spec-compiled
+  type: OpenAPI
+  note: Source of the harvested shared OBIE Open Data API standard (Swagger 2.0 v1.3).
+actions:
+  openapiHarvested: true
+  openapiProvenance: shared-OBIE-standard
+  openDataConfirmed: false
+  developerPortal: https://www.bankofapis.com/
+  liveGatewayConfirmed: https://api.openbanking.prd-mettle.co.uk

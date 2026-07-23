@@ -1,0 +1,142 @@
+aid: mettle
+url: https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/apis.yml
+name: Mettle
+kind: company
+description: Mettle is a digital-only business bank account brand for UK sole traders,
+  freelancers, and small limited companies, wholly owned by NatWest Group and
+  originally built with Capco. It has no physical branches and is run on separate
+  technology from the core NatWest bank, offering an app-based current account with
+  a UK sort code and account number, invoicing, bookkeeping, tax tools, and a free
+  FreeAgent accounting integration. As a NatWest Group brand, Mettle participates in
+  UK Open Banking through NatWest Group's "Bank of APIs" developer platform,
+  publishing PSD2 / OBIE-conformant APIs - a public, unsecured Open Data (Product)
+  API describing its business current accounts, plus the FAPI-secured Read/Write
+  family (Account & Transaction Information, Payment Initiation, and Confirmation of
+  Funds). Read/Write access runs against a live production gateway
+  (api.openbanking.prd-mettle.co.uk) secured with OAuth2/OIDC, mutual-TLS client
+  authentication, and PSD2 strong customer authentication using OBIE/eIDAS
+  certificates, onboarded via the Bank of APIs portal. Mettle is delivered under
+  NatWest Group's FCA-authorised banking group and is a challenger/digital
+  proposition rather than one of the CMA9 mandated brands.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-23'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- Business Banking
+- Open Banking
+- PSD2
+- OBIE
+- FAPI
+- United Kingdom
+- Payments
+- Account Information
+- Challenger Bank
+- Fintech
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis:
+- aid: mettle:mettle-open-data-product-api
+  name: Mettle Open Data Product API
+  description: Mettle's public, unsecured UK Open Banking Open Data (Product) API,
+    exposing reference information about the business current accounts Mettle offers
+    to sole traders and limited companies. Conforms to the OBIE Open Data API
+    standard; no credentials required to read.
+  humanURL: https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
+  tags:
+  - Open Data
+  - Business Current Accounts
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/mettle-open-data-api-openapi.json
+  - type: Documentation
+    url: https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  - type: APIReference
+    url: https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+- aid: mettle:mettle-account-transaction-api
+  name: Mettle Account and Transaction API
+  description: OBIE Read/Write Account & Transaction Information (AIS) API for Mettle
+    business current accounts, exposing accounts, balances, transactions, and related
+    resources to FCA-authorised third parties. FAPI-secured with OAuth2/OIDC, mTLS,
+    and PSD2 strong customer authentication.
+  humanURL: https://www.bankofapis.com/products/accounts/documentation/mettle
+  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/aisp
+  tags:
+  - Account Information
+  - Transactions
+  - AIS
+  properties:
+  - type: Documentation
+    url: https://www.bankofapis.com/products/accounts/documentation/mettle
+  - type: APIReference
+    url: https://www.bankofapis.com/products/accounts/documentation/mettle
+- aid: mettle:mettle-payment-initiation-api
+  name: Mettle Payment Initiation API
+  description: OBIE Read/Write Payment Initiation Services (PIS) API for Mettle,
+    allowing FCA-authorised third parties to initiate domestic and other payments
+    from a customer's Mettle account with their consent. FAPI-secured with
+    OAuth2/OIDC, mTLS, and PSD2 strong customer authentication.
+  humanURL: https://www.bankofapis.com/products/payments/documentation/mettle
+  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/pisp
+  tags:
+  - Payment Initiation
+  - Payments
+  - PIS
+  properties:
+  - type: Documentation
+    url: https://www.bankofapis.com/products/payments/documentation/mettle
+  - type: APIReference
+    url: https://www.bankofapis.com/products/payments/documentation/mettle
+- aid: mettle:mettle-confirmation-of-funds-api
+  name: Mettle Confirmation of Funds API
+  description: OBIE Read/Write Confirmation of Funds (CBPII) API for Mettle, letting
+    card-based payment instrument issuers confirm whether funds are available on a
+    customer's Mettle account. FAPI-secured with OAuth2/OIDC, mTLS, and PSD2 strong
+    customer authentication.
+  humanURL: https://www.bankofapis.com/products/card-based-payments/documentation/mettle
+  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/cbpii
+  tags:
+  - Confirmation of Funds
+  - CBPII
+  - Funds Check
+  properties:
+  - type: Documentation
+    url: https://www.bankofapis.com/products/card-based-payments/documentation/mettle
+  - type: APIReference
+    url: https://www.bankofapis.com/products/card-based-payments/documentation/mettle
+common:
+- type: Website
+  url: https://www.mettle.co.uk/
+- type: DeveloperPortal
+  url: https://www.bankofapis.com/
+- type: Documentation
+  url: https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+- type: StatusPage
+  url: https://www.bankofapis.com/performance/service-interruptions
+- type: Blog
+  url: https://www.mettle.co.uk/blog/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/join-mettle
+- type: Support
+  url: https://www.mettle.co.uk/contact-us/
+- type: TermsOfService
+  url: https://www.mettle.co.uk/docs/terms-and-conditions/1.5.pdf
+- type: PrivacyPolicy
+  url: https://www.mettle.co.uk/privacy-notice/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
