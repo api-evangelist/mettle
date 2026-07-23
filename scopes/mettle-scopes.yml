@@ -1,0 +1,36 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  https://secure1.natwest.com/.well-known/openid-configuration (scopes_supported)
+  filtered to Mettle's OBIE Read/Write products
+docs: https://www.bankofapis.com/products/accounts/documentation/mettle
+notes: >-
+  The NatWest Group OpenID Provider advertises a very large enterprise scope set;
+  the scopes below are the OBIE Read/Write standard scopes that apply to Mettle's
+  published AIS/PIS/CBPII products. A token request passes one or more of the
+  scopes the TPP has been granted, plus openid for the OIDC id_token.
+schemes:
+- name: OpenBankingOAuth2
+  source: https://secure1.natwest.com/.well-known/openid-configuration
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://secure1.natwest.com/as/authorization.oauth2
+    tokenUrl: https://secure1t.natwest.com/as/token.oauth2
+  - flow: clientCredentials
+    tokenUrl: https://secure1t.natwest.com/as/token.oauth2
+scopes:
+- scope: openid
+  description: OpenID Connect - issue an id_token binding the consent (openbanking_intent_id).
+  flows: [authorizationCode]
+- scope: accounts
+  description: Account & Transaction Information (AIS) - read accounts, balances, transactions, and related resources.
+  flows: [authorizationCode, clientCredentials]
+  product: mettle-account-transaction-api
+- scope: payments
+  description: Payment Initiation (PIS) - create and submit domestic and other payment orders from a customer's account.
+  flows: [authorizationCode, clientCredentials]
+  product: mettle-payment-initiation-api
+- scope: fundsconfirmations
+  description: Confirmation of Funds (CBPII) - confirm whether funds are available on a customer's account.
+  flows: [authorizationCode, clientCredentials]
+  product: mettle-confirmation-of-funds-api

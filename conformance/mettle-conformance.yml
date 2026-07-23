@@ -1,0 +1,41 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  https://secure1.natwest.com/.well-known/openid-configuration + OBIE Read/Write
+  standard + UK Open Banking / PSD2 regime
+docs: https://www.bankofapis.com/products/natwest-group-open-banking
+standards:
+- id: oauth2
+  conforms: true
+  evidence: authorization server advertises authorization_code, client_credentials, refresh_token grants
+- id: oidc
+  conforms: true
+  evidence: OpenID Provider metadata at secure1.natwest.com; response_types 'code id_token'
+- id: fapi
+  conforms: true
+  evidence: >-
+    FAPI Read/Write profile - tls_client_auth + private_key_jwt token auth, PS256
+    request-object signing, 'code id_token' hybrid flow, s_hash/openbanking_intent_id claim
+- id: psd2
+  conforms: true
+  evidence: >-
+    UK PSD2 / OBIE Read/Write API; acr urn:openbanking:psd2:ca for strong customer authentication
+- id: obie-read-write
+  conforms: true
+  evidence: AIS/PIS/CBPII products published to OBIE Read/Write v3.1 standard on Bank of APIs
+- id: obie-open-data
+  conforms: true
+  evidence: Open Data Product API conforms to the OBIE Open Data API standard (v2.3 / v1.3 reference implementation)
+- id: mtls
+  conforms: true
+  evidence: token_endpoint_auth_methods_supported includes tls_client_auth; resource gateway enforces mTLS
+- id: eidas
+  conforms: true
+  evidence: OB Transport/Signing certificates issued via the OpenBanking Directory (eIDAS QWAC/QSEAL)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: OBIE uses its own OBError1 error envelope, not application/problem+json
+compliance:
+  published: true
+  program: UK Open Banking (OBIE) / PSD2 conformance under NatWest Group's FCA-authorised banking group
+  certifications: [FAPI Read/Write, OBIE Open Data, PSD2/SCA]

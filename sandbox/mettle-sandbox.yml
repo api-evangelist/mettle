@@ -1,0 +1,22 @@
+generated: '2026-07-23'
+method: searched
+source: https://developer.sandbox.natwest.com/ (NatWest Group Open Banking Sandbox)
+notes: >-
+  Mettle's Read/Write APIs are exercised through NatWest Group's shared Open
+  Banking developer sandbox, which mirrors the OBIE Read/Write endpoints with test
+  PSUs (test bank customers) and pre-provisioned test data. The Open Data (Product)
+  API returns real published reference data and needs no sandbox credentials.
+environments:
+- name: sandbox
+  portal: https://developer.sandbox.natwest.com/
+  auth: OAuth2 + test OB certificates issued in the sandbox onboarding flow
+  data: >-
+    Pre-seeded test PSUs with accounts, balances and transactions for AIS; test
+    payees and payment flows for PIS; funds-availability responses for CBPII.
+  note: Register a sandbox app to obtain client credentials and a software statement.
+- name: production
+  gateway: https://api.openbanking.prd-mettle.co.uk/open-banking
+  auth: mTLS + OAuth2 with live eIDAS/OBIE OB Transport & Signing certificates
+onboarding:
+  portal: https://www.bankofapis.com/
+  requires: [OBIE/eIDAS OB Transport certificate, OB Signing certificate, FCA/EBA registration, software statement]

@@ -1,0 +1,72 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/mettle-open-data-api-openapi.json (Open Data) + OBIE Read/Write v3.1
+  resource model (AIS/PIS/CBPII)
+notes: >-
+  The Open Data API exposes flat product/location reference collections. The
+  secured Read/Write APIs follow the OBIE resource graph anchored on Account and
+  on consent resources; the core relationships are captured below from the OBIE
+  standard.
+entities:
+- name: Brand
+  api: open-data
+  description: A banking brand (Mettle) grouping published product collections.
+- name: BusinessCurrentAccount
+  api: open-data
+  description: A published business current account product with features, eligibility and rates.
+- name: PersonalCurrentAccount
+  api: open-data
+- name: CommercialCreditCard
+  api: open-data
+- name: UnsecuredSmeLoan
+  api: open-data
+- name: Branch
+  api: open-data
+- name: Atm
+  api: open-data
+- name: Account
+  api: aisp
+  description: A customer's Mettle business current account.
+- name: Balance
+  api: aisp
+- name: Transaction
+  api: aisp
+- name: AccountAccessConsent
+  api: aisp
+- name: DomesticPayment
+  api: pisp
+- name: DomesticPaymentConsent
+  api: pisp
+- name: FundsConfirmation
+  api: cbpii
+- name: FundsConfirmationConsent
+  api: cbpii
+relationships:
+- from: Brand
+  to: BusinessCurrentAccount
+  type: has_many
+- from: AccountAccessConsent
+  to: Account
+  type: has_many
+  via: consent grants access to permitted accounts
+- from: Account
+  to: Balance
+  type: has_one
+  via: AccountId
+- from: Account
+  to: Transaction
+  type: has_many
+  via: AccountId
+- from: DomesticPaymentConsent
+  to: DomesticPayment
+  type: has_one
+  via: ConsentId
+- from: DomesticPayment
+  to: Account
+  type: belongs_to
+  via: DebtorAccount
+- from: FundsConfirmationConsent
+  to: FundsConfirmation
+  type: has_many
+  via: ConsentId

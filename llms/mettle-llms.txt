@@ -1,0 +1,33 @@
+# Mettle
+
+> Mettle is a digital-only business bank account brand for UK sole traders, freelancers, and small limited companies, wholly owned by NatWest Group. As a NatWest Group brand it participates in UK Open Banking through the "Bank of APIs" developer platform, publishing PSD2/OBIE-conformant APIs: a public unsecured Open Data (Product) API plus the FAPI-secured Read/Write family (Account & Transaction Information, Payment Initiation, and Confirmation of Funds).
+
+## APIs
+
+- [Mettle Open Data Product API](https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle): Public, unsecured OBIE Open Data API describing Mettle's business current accounts and locations. Base: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
+- [Mettle Account and Transaction API (AIS)](https://www.bankofapis.com/products/accounts/documentation/mettle): OBIE Read/Write AIS. Base: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/aisp
+- [Mettle Payment Initiation API (PIS)](https://www.bankofapis.com/products/payments/documentation/mettle): OBIE Read/Write PIS. Base: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/pisp
+- [Mettle Confirmation of Funds API (CBPII)](https://www.bankofapis.com/products/card-based-payments/documentation/mettle): OBIE Read/Write CBPII. Base: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/cbpii
+
+## Specs & Artifacts
+
+- [Open Data OpenAPI](https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/openapi/mettle-open-data-api-openapi.json)
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/authentication/mettle-authentication.yml)
+- [OAuth scopes](https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/scopes/mettle-scopes.yml)
+- [Conformance (FAPI/OBIE/PSD2)](https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/conformance/mettle-conformance.yml)
+- [API conventions](https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/conventions/mettle-conventions.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/errors/mettle-problem-types.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/data-model/mettle-data-model.yml)
+- [NatWest OpenID discovery](https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/well-known/mettle-openid-configuration.json)
+
+## Auth
+
+- Open Data API: unsecured, no credentials.
+- Read/Write APIs: FAPI-secured OAuth2/OIDC against the NatWest Group OpenID Provider (issuer https://secure1.natwest.com), mutual-TLS (tls_client_auth) with OBIE/eIDAS certificates, PSD2 strong customer authentication. Scopes: openid, accounts, payments, fundsconfirmations.
+
+## Docs
+
+- [Bank of APIs developer portal](https://www.bankofapis.com/)
+- [NatWest Group Open Banking sandbox](https://developer.sandbox.natwest.com/)
+- [Service status / interruptions](https://www.bankofapis.com/performance/service-interruptions)
+- [Mettle website](https://www.mettle.co.uk/)

@@ -46,7 +46,7 @@ tags:
 - Fintech
 created: '2026-07-23'
 modified: '2026-07-23'
-specificationVersion: '0.19'
+specificationVersion: '0.21'
 apis:
 - aid: mettle:mettle-open-data-product-api
   name: Mettle Open Data Product API
@@ -119,6 +119,42 @@ apis:
   - type: APIReference
     url: https://www.bankofapis.com/products/card-based-payments/documentation/mettle
 common:
+- type: AgenticAccess
+  url: agentic-access/mettle-agentic-access.yml
+- type: DomainSecurity
+  url: security/mettle-domain-security.yml
+- type: Authentication
+  url: authentication/mettle-authentication.yml
+- type: OAuthScopes
+  url: scopes/mettle-scopes.yml
+- type: Conformance
+  url: conformance/mettle-conformance.yml
+- type: Compliance
+  url: https://www.bankofapis.com/products/natwest-group-open-banking
+- type: Conventions
+  url: conventions/mettle-conventions.yml
+- type: Idempotency
+  url: conventions/mettle-conventions.yml
+- type: ErrorCatalog
+  url: errors/mettle-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/mettle-lifecycle.yml
+- type: Deprecation
+  url: https://www.bankofapis.com/products/natwest-group-open-banking
+- type: DataModel
+  url: data-model/mettle-data-model.yml
+- type: WellKnown
+  url: well-known/mettle-well-known.yml
+- type: MCPServer
+  url: mcp/mettle-mcp.yml
+- type: LLMsTxt
+  url: llms/mettle-llms.txt
+- type: Overlay
+  url: overlays/mettle-open-data-api-overlay.yaml
+- type: Sandbox
+  url: https://developer.sandbox.natwest.com/
+- type: AgentSkill
+  url: skills/_index.yml
 - type: Website
   url: https://www.mettle.co.uk/
 - type: DeveloperPortal

@@ -1,0 +1,52 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  https://secure1.natwest.com/.well-known/openid-configuration (NatWest Group
+  Open Banking OpenID Provider) + OBIE FAPI Read/Write security profile
+docs: https://www.bankofapis.com/products/accounts/documentation/mettle
+notes: >-
+  The public Open Data (Product) API is unsecured (no credentials required to read
+  reference data). The Read/Write family (AIS/PIS/CBPII) is FAPI-secured against the
+  shared NatWest Group OpenID Provider. Onboarding requires OBIE/eIDAS OB Transport
+  and Signing certificates issued via the OpenBanking Directory and registration
+  through the Bank of APIs portal.
+summary:
+  types: [oauth2, openIdConnect, mutualTLS]
+  api_key_in: []
+  oauth2_flows: [authorizationCode, clientCredentials, refreshToken]
+  open_data_api: unsecured
+  fapi: true
+  psd2_sca: true
+provider:
+  issuer: https://secure1.natwest.com
+  authorization_endpoint: https://secure1.natwest.com/as/authorization.oauth2
+  token_endpoint: https://secure1t.natwest.com/as/token.oauth2
+  revocation_endpoint: https://secure1.natwest.com/as/revoke_token.oauth2
+  registration_endpoint: https://api.natwest.com/register/v1.0
+  jwks_uri: https://keystore.openbanking.org.uk/0015800000jfwxXAAQ/6htRg5BcPIKPQEMSacgHjn.jwks
+schemes:
+- name: OpenBankingOAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://secure1.natwest.com/as/authorization.oauth2
+    tokenUrl: https://secure1t.natwest.com/as/token.oauth2
+    use: AIS/PIS/CBPII customer-consent access (accounts, payments, fundsconfirmations)
+  - flow: clientCredentials
+    tokenUrl: https://secure1t.natwest.com/as/token.oauth2
+    use: TPP client access-token acquisition prior to consent
+  applies_to: [aisp, pisp, cbpii]
+- name: OpenIDConnect
+  type: openIdConnect
+  response_types: [code id_token]
+  id_token_signing_alg: [PS256, RS256, ES256]
+  request_object_signing_alg: [PS256, RS256, ES256]
+  acr_values: ['urn:openbanking:psd2:ca', 'urn:openbanking:psd2:sca']
+  claims: [openbanking_intent_id, acr, sub, iss, aud, exp, iat]
+  note: FAPI hybrid flow; request object is a signed JWT carrying openbanking_intent_id
+- name: MutualTLS
+  type: mutualTLS
+  token_endpoint_auth_methods: [tls_client_auth, private_key_jwt]
+  note: >-
+    OBIE/eIDAS OB Transport certificate for the mTLS channel; OB Signing
+    certificate for detached JWS message signing on write operations.

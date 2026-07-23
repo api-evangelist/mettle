@@ -1,0 +1,33 @@
+generated: '2026-07-23'
+method: derived
+status: candidate
+source: openapi/mettle-open-data-api-openapi.json
+notes: >-
+  No official hosted MCP server was found for Mettle or NatWest Group Bank of APIs.
+  This is a candidate tool list derived from the public, unsecured Open Data
+  (Product) API operations - safe read-only reference lookups suitable for agent
+  exposure. The secured AIS/PIS/CBPII APIs are not modelled here because they
+  require per-customer FAPI consent and mTLS.
+server:
+  name: mettle-open-data
+  transport: http
+  url: null
+tools:
+- name: list_branches
+  description: List Mettle/NatWest Group branch locations and details.
+  source_operation: openapi/mettle-open-data-api-openapi.json#GET /branches
+- name: list_atms
+  description: List ATM locations and details.
+  source_operation: openapi/mettle-open-data-api-openapi.json#GET /atms
+- name: list_personal_current_accounts
+  description: List published personal current account products.
+  source_operation: openapi/mettle-open-data-api-openapi.json#GET /personal-current-accounts
+- name: list_business_current_accounts
+  description: List published Mettle business current account products.
+  source_operation: openapi/mettle-open-data-api-openapi.json#GET /business-current-accounts
+- name: list_unsecured_sme_loans
+  description: List published unsecured SME loan products.
+  source_operation: openapi/mettle-open-data-api-openapi.json#GET /unsecured-sme-loans
+- name: list_commercial_credit_cards
+  description: List published commercial credit card products.
+  source_operation: openapi/mettle-open-data-api-openapi.json#GET /commercial-credit-cards

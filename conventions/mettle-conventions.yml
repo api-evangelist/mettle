@@ -1,0 +1,44 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  OBIE Read/Write API standard (headers, pagination, idempotency, signing) as
+  implemented on NatWest Group Bank of APIs + openapi/mettle-open-data-api-openapi.json
+docs: https://www.bankofapis.com/products/accounts/documentation/mettle
+authentication:
+  style: oauth2 + mTLS (FAPI); Open Data API unsecured
+  see: authentication/mettle-authentication.yml
+idempotency:
+  supported: true
+  scope: payment initiation (PIS) write operations
+  header: x-idempotency-key
+  max_length: 40
+  retention: 24 hours (OBIE standard)
+  note: >-
+    Payment-order creation requires a unique x-idempotency-key so retries do not
+    create duplicate payments; combined with x-jws-signature for message integrity.
+request_signing:
+  header: x-jws-signature
+  algorithm: PS256
+  scope: Read/Write POST/PUT write requests and responses (detached JWS)
+fapi_headers:
+  x-fapi-auth-date: Time the PSU last logged in with the TPP.
+  x-fapi-customer-ip-address: PSU IP address when present.
+  x-fapi-interaction-id: UUID echoed for request correlation/tracing.
+  x-customer-user-agent: PSU device/user-agent when present.
+tracing:
+  request_id_header: x-fapi-interaction-id
+  note: Provide a UUID; the server echoes it on the response for correlation.
+pagination:
+  style: cursor-links
+  response_fields: [Links.Self, Links.First, Links.Prev, Links.Next, Links.Last, Meta.TotalPages]
+  note: OBIE responses page via Links/Meta blocks; page size is server-controlled.
+versioning:
+  style: uri-path
+  see: lifecycle/mettle-lifecycle.yml
+error_envelope:
+  open_data: HTTP status codes (400/408/429/500/503)
+  read_write: OBIE OBError1 (Code/Id/Message/Errors[])
+  see: errors/mettle-problem-types.yml
+rate_limiting:
+  signal: 429 Too Many Requests
+  note: OBIE TPP throttling applies per gateway; retry with backoff on 429.

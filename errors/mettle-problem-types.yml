@@ -1,0 +1,40 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/mettle-open-data-api-openapi.json (4xx/5xx responses)
+format: obie-open-data
+notes: >-
+  Derived from the HTTP status responses declared on every operation of the Open
+  Data Product API. The secured Read/Write APIs use the OBIE OBError1 error
+  envelope (Code, Id, Message, Errors[].ErrorCode/Message/Path) rather than
+  application/problem+json.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: The request was malformed or failed validation.
+  source_operations: [GET /branches, GET /atms, GET /personal-current-accounts, GET /business-current-accounts, GET /unsecured-sme-loans, GET /commercial-credit-cards]
+- status: 408
+  title: Request Timeout
+  meaning: The server timed out waiting for the request.
+- status: 429
+  title: Too Many Requests
+  meaning: Rate limit exceeded; back off and retry after the indicated interval.
+- status: 500
+  title: Internal Server Error
+  meaning: An unexpected error occurred on the server.
+- status: 503
+  title: Service Unavailable
+  meaning: The service is temporarily unavailable (maintenance or overload).
+- status: default
+  title: Unexpected error
+  meaning: Fallback error response for status codes not otherwise enumerated.
+secured_envelope:
+  name: OBError1
+  media_type: application/json
+  fields: [Code, Id, Message, Errors]
+  error_fields: [ErrorCode, Message, Path, Url]
+  example_error_codes:
+  - UK.OBIE.Field.Invalid
+  - UK.OBIE.Field.Missing
+  - UK.OBIE.Resource.NotFound
+  - UK.OBIE.Unsupported.Scheme
+  - UK.OBIE.Signature.Missing

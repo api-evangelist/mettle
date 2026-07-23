@@ -1,0 +1,23 @@
+generated: '2026-07-23'
+method: searched
+source: >-
+  https://www.bankofapis.com/ (NatWest Group Bank of APIs portal) + OBIE
+  Read/Write versioning conventions
+versioning:
+  scheme: uri-path
+  open_data_current: v2.3
+  read_write_current: v3.1
+  docs: https://www.bankofapis.com/products/natwest-group-open-banking
+  note: Version carried in the URL path (e.g. /open-banking/v3.1/aisp).
+deprecation:
+  policy_url: https://www.bankofapis.com/products/natwest-group-open-banking
+  sunset_header: unknown
+  note: >-
+    NatWest Group publishes API version transitions and retirements via Bank of
+    APIs release notes; older OBIE versions are retired as newer OBIE Read/Write
+    versions are adopted.
+sla:
+  url: https://www.bankofapis.com/performance/service-interruptions
+  note: Service availability and interruption notices published on the Bank of APIs performance page.
+status_page: https://www.bankofapis.com/performance/service-interruptions
+deprecated_operations: []

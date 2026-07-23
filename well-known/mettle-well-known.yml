@@ -1,0 +1,36 @@
+generated: '2026-07-23'
+method: searched
+source: live /.well-known/ probes of Mettle + NatWest Group Open Banking hosts
+notes: >-
+  Mettle's secured Read/Write (AIS/PIS/CBPII) APIs authenticate against the shared
+  NatWest Group production OpenID Provider (secure1.natwest.com), whose OIDC
+  discovery document is public and captured here. The Mettle API gateway
+  (api.openbanking.prd-mettle.co.uk) rejects anonymous /.well-known requests with
+  401 invalid_client because it enforces mutual-TLS client authentication.
+hosts:
+- host: https://secure1.natwest.com
+  role: NatWest Group Open Banking authorization server (OpenID Provider)
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: mettle-openid-configuration.json
+    note: OBIE/FAPI OpenID Provider metadata; issuer https://secure1.natwest.com
+- host: https://api.openbanking.prd-mettle.co.uk
+  role: Mettle Open Banking resource gateway (mTLS-gated)
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 401
+    note: invalid_client - anonymous access rejected; requires mTLS client cert
+  - path: /.well-known/security.txt
+    status: 000
+    note: TLS handshake requires eIDAS/OBIE client certificate
+- host: https://www.mettle.co.uk
+  role: Mettle consumer/marketing site
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://www.bankofapis.com
+  role: NatWest Group Bank of APIs developer portal
+  documents:
+  - path: /.well-known/security.txt
+    status: 404

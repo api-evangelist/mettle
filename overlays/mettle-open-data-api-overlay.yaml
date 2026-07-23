@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Mettle Open Data Product API
+  version: 1.0.0
+extends: openapi/mettle-open-data-api-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: mettle
+    x-apievangelist-standard: OBIE Open Data API
+    x-apievangelist-secured: false
+    x-apievangelist-related-apis:
+    - mettle-account-transaction-api
+    - mettle-payment-initiation-api
+    - mettle-confirmation-of-funds-api
+- target: $.info
+  update:
+    x-agentic-access:
+      action-class: connected
+      consequence: read
+      note: Public unsecured reference data - safe read-only agent exposure.
