@@ -46,7 +46,7 @@ tags:
 - Fintech
 created: '2026-07-23'
 modified: '2026-07-23'
-specificationVersion: '0.21'
+specificationVersion: '0.23'
 apis:
 - aid: mettle:mettle-open-data-product-api
   name: Mettle Open Data Product API
