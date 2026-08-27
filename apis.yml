@@ -61,35 +61,12 @@ created: '2026-07-23'
 modified: '2026-07-23'
 specificationVersion: '0.23'
 apis:
-- aid: mettle:mettle-open-data-product-api
-  name: Mettle Open Data Product API
-  description: Mettle's public, unsecured UK Open Banking Open Data (Product) API,
-    exposing reference information about the business current accounts Mettle offers
-    to sole traders and limited companies. Conforms to the OBIE Open Data API
-    standard; no credentials required to read.
-  humanURL: https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
-  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
-  tags:
-  - Open Data
-  - Business Current Accounts
-  - Product
-  tags_raw:
-  - Open Data
-  - Business Current Accounts
-  - Products
-  properties:
-  - type: OpenAPI
-    url: openapi/mettle-open-data-api-openapi.json
-  - type: Documentation
-    url: https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
-  - type: APIReference
-    url: https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
 - aid: mettle:mettle-account-transaction-api
   name: Mettle Account and Transaction API
-  description: OBIE Read/Write Account & Transaction Information (AIS) API for Mettle
-    business current accounts, exposing accounts, balances, transactions, and related
-    resources to FCA-authorised third parties. FAPI-secured with OAuth2/OIDC, mTLS,
-    and PSD2 strong customer authentication.
+  description: >-
+    OBIE Read/Write Account & Transaction Information (AIS) API for Mettle business current accounts,
+    exposing accounts, balances, transactions, and related resources to FCA-authorised third parties.
+    FAPI-secured with OAuth2/OIDC, mTLS, and PSD2 strong customer authentication.
   humanURL: https://www.bankofapis.com/products/accounts/documentation/mettle
   baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/aisp
   tags:
@@ -107,10 +84,10 @@ apis:
     url: https://www.bankofapis.com/products/accounts/documentation/mettle
 - aid: mettle:mettle-payment-initiation-api
   name: Mettle Payment Initiation API
-  description: OBIE Read/Write Payment Initiation Services (PIS) API for Mettle,
-    allowing FCA-authorised third parties to initiate domestic and other payments
-    from a customer's Mettle account with their consent. FAPI-secured with
-    OAuth2/OIDC, mTLS, and PSD2 strong customer authentication.
+  description: >-
+    OBIE Read/Write Payment Initiation Services (PIS) API for Mettle, allowing FCA-authorised third parties
+    to initiate domestic and other payments from a customer's Mettle account with their consent. FAPI-secured
+    with OAuth2/OIDC, mTLS, and PSD2 strong customer authentication.
   humanURL: https://www.bankofapis.com/products/payments/documentation/mettle
   baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/pisp
   tags:
@@ -124,10 +101,10 @@ apis:
     url: https://www.bankofapis.com/products/payments/documentation/mettle
 - aid: mettle:mettle-confirmation-of-funds-api
   name: Mettle Confirmation of Funds API
-  description: OBIE Read/Write Confirmation of Funds (CBPII) API for Mettle, letting
-    card-based payment instrument issuers confirm whether funds are available on a
-    customer's Mettle account. FAPI-secured with OAuth2/OIDC, mTLS, and PSD2 strong
-    customer authentication.
+  description: >-
+    OBIE Read/Write Confirmation of Funds (CBPII) API for Mettle, letting card-based payment instrument
+    issuers confirm whether funds are available on a customer's Mettle account. FAPI-secured with OAuth2/OIDC,
+    mTLS, and PSD2 strong customer authentication.
   humanURL: https://www.bankofapis.com/products/card-based-payments/documentation/mettle
   baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/cbpii
   tags:
@@ -139,6 +116,108 @@ apis:
     url: https://www.bankofapis.com/products/card-based-payments/documentation/mettle
   - type: APIReference
     url: https://www.bankofapis.com/products/card-based-payments/documentation/mettle
+- aid: mettle:mettle-atm-api
+  name: Mettle ATM API
+  description: Endpoint for getting ATM data
+  humanURL: >-
+    https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
+  tags:
+  - ATM
+  properties:
+  - type: OpenAPI
+    url: openapi/mettle-atm-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  - type: APIReference
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+- aid: mettle:mettle-bca-api
+  name: Mettle BCA API
+  description: Endpoint for getting Business Current Account data
+  humanURL: >-
+    https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
+  tags:
+  - BCA
+  properties:
+  - type: OpenAPI
+    url: openapi/mettle-bca-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  - type: APIReference
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+- aid: mettle:mettle-branch-api
+  name: Mettle Branch API
+  description: Endpoint for getting Branch data
+  humanURL: >-
+    https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
+  tags:
+  - Branch
+  properties:
+  - type: OpenAPI
+    url: openapi/mettle-branch-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  - type: APIReference
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+- aid: mettle:mettle-ccc-api
+  name: Mettle CCC API
+  description: Endpoint for getting Commercial Credit Card data
+  humanURL: >-
+    https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
+  tags:
+  - CCC
+  properties:
+  - type: OpenAPI
+    url: openapi/mettle-ccc-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  - type: APIReference
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+- aid: mettle:mettle-pca-api
+  name: Mettle PCA API
+  description: Endpoint for getting Personal Current Account data
+  humanURL: >-
+    https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
+  tags:
+  - PCA
+  properties:
+  - type: OpenAPI
+    url: openapi/mettle-pca-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  - type: APIReference
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+- aid: mettle:mettle-sme-api
+  name: Mettle SME API
+  description: Endpoint for getting Unsecured SME Loan data
+  humanURL: >-
+    https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
+  tags:
+  - SME
+  properties:
+  - type: OpenAPI
+    url: openapi/mettle-sme-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
+  - type: APIReference
+    url: >-
+      https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
 common:
 - type: AgenticAccess
   url: agentic-access/mettle-agentic-access.yml
