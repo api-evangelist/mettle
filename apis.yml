@@ -18,6 +18,18 @@ description: Mettle is a digital-only business bank account brand for UK sole tr
   certificates, onboarded via the Bank of APIs portal. Mettle is delivered under
   NatWest Group's FCA-authorised banking group and is a challenger/digital
   proposition rather than one of the CMA9 mandated brands.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
