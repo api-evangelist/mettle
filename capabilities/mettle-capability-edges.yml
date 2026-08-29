@@ -1,0 +1,53 @@
+slug: mettle
+provider: Mettle
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: ATM
+  spec_file: mettle-atm-api-openapi.yml
+  capability_id: BC-1300.50
+  capability_id_l1: BC-1300
+  capability_name: Banking Channels Management
+  confidence: 0.8
+  evidence: openapi title "Open Data ATM API"; GET /atms
+  reason: Same UK Open Data ATM-location surface; ATM network information is channel operations data under
+    Banking Channels Management (the vendor is branchless, but the mandated Open Data endpoint is still
+    published).
+- tag: Branch
+  spec_file: mettle-branch-api-openapi.yml
+  capability_id: BC-1300.50
+  capability_id_l1: BC-1300
+  capability_name: Banking Channels Management
+  confidence: 0.8
+  evidence: openapi title "Open Data Branch API"; GET /branches
+  reason: Open Data branch-listing endpoint; branch network information is Banking Channels Management,
+    even though this digital-only brand will return an empty estate.
+- tag: BCA
+  spec_file: mettle-bca-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.7
+  evidence: openapi title "Open Data BCA API"; GET /business-current-accounts
+  reason: Open Data publication of the business current account product range, matching product catalogue
+    publication rather than individual account servicing.
+- tag: PCA
+  spec_file: mettle-pca-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.7
+  evidence: '"Open Data PCA API" ... GET /personal-current-accounts'
+  reason: This is an Open Banking Open Data endpoint that publishes the bank's personal current account
+    product information (product master/reference data), i.e. banking product catalogue publication rather
+    than account servicing of a specific customer's account.

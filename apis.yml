@@ -231,6 +231,9 @@ apis:
     url: >-
       https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
 common:
+- type: CapabilityMap
+  url: capabilities/mettle-capability-edges.yml
+  name: Mettle Business Capability Map
 - type: AgenticAccess
   url: agentic-access/mettle-agentic-access.yml
 - type: DomainSecurity
