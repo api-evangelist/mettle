@@ -105,6 +105,10 @@ apis:
   tags:
   - Payment Initiation
   - Payments
+  - PI
+  tags_raw:
+  - Payment Initiation
+  - Payments
   - PIS
   properties:
   - type: Documentation
