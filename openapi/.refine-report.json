@@ -1,0 +1,30 @@
+{
+  "provider": "mettle",
+  "sources": [
+    "_original/mettle-open-data-api-openapi.json"
+  ],
+  "outputs": [
+    "mettle-atm-api-openapi.yml",
+    "mettle-bca-api-openapi.yml",
+    "mettle-branch-api-openapi.yml",
+    "mettle-ccc-api-openapi.yml",
+    "mettle-pca-api-openapi.yml",
+    "mettle-sme-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "mettle-open-data-api-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "mettle-atm-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mettle-bca-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mettle-branch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mettle-ccc-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mettle-pca-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mettle-sme-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
