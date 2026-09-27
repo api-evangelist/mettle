@@ -44,7 +44,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
-- Financial-Services
+- Financial Services
 - Banking
 - Business Banking
 - Open Banking
@@ -69,6 +69,7 @@ tags_raw:
 - Account Information
 - Challenger Bank
 - Fintech
+- Financial-Services
 created: '2026-07-23'
 modified: '2026-07-23'
 specificationVersion: '0.23'
@@ -224,6 +225,8 @@ apis:
     https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle
   baseURL: https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3
   tags:
+  - Small Business
+  tags_raw:
   - SME
   properties:
   - type: OpenAPI
