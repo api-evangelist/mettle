@@ -1,4 +1,4 @@
-# Mettle (mettle)
+# Mettle
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,118 +64,129 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Mettle is a digital-only business bank account brand for UK sole traders, freelancers, and small limited companies, wholly owned by NatWest Group and originally built with Capco. It has no physical branches and runs on separate technology from the core NatWest bank. As a NatWest Group brand, Mettle participates in UK Open Banking through NatWest Group's "Bank of APIs" developer platform, publishing PSD2 / OBIE-conformant APIs: a public, unsecured Open Data (Product) API plus the FAPI-secured Read/Write family (Account & Transaction Information, Payment Initiation, and Confirmation of Funds).
+Mettle is a digital-only business bank account brand for UK sole traders, freelancers, and small limited companies, wholly owned by NatWest Group and originally built with Capco. It has no physical branches and is run on separate technology from the core NatWest bank, offering an app-based current account with a UK sort code and account number, invoicing, bookkeeping, tax tools, and a free FreeAgent accounting integration. As a NatWest Group brand, Mettle participates in UK Open Banking through NatWest Group's "Bank of APIs" developer platform, publishing PSD2 / OBIE-conformant APIs - a public, unsecured Open Data (Product) API describing its business current accounts, plus the FAPI-secured Read/Write family (Account & Transaction Information, Payment Initiation, and Confirmation of Funds). Read/Write access runs against a live production gateway (api.openbanking.prd-mettle.co.uk) secured with OAuth2/OIDC, mutual-TLS client authentication, and PSD2 strong customer authentication using OBIE/eIDAS certificates, onboarded via the Bank of APIs portal. Mettle is delivered under NatWest Group's FCA-authorised banking group and is a challenger/digital proposition rather than one of the CMA9 mandated brands.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/mettle/refs/heads/main/apis.yml)
+**Areas:** Financial Services · Banking · Business Banking · Open Banking · PSD2 · OBIE · FAPI · United Kingdom · Payments · Account Information · Challenger Bank · Fintech
 
-## Tags
+## Mettle on APIs.io
 
-- Financial Services
-- Banking
-- Business Banking
-- Open Banking
-- PSD2
-- OBIE
-- FAPI
-- United Kingdom
-- Payments
-- Account Information
-- Challenger Bank
-- Fintech
+Everything profiled for Mettle is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/mettle/](https://apis.io/providers/mettle/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (9)
 
-- **Created:** 2026-07-23
-- **Modified:** 2026-07-23
+- [Mettle Account and Transaction API](https://apis.io/apis/mettle/mettle-account-transaction-api/) — OBIE Read/Write Account & Transaction Information (AIS) API for Mettle business current accounts, exposing accounts, balances, transactions, and related…
+- [Mettle Payment Initiation API](https://apis.io/apis/mettle/mettle-payment-initiation-api/) — OBIE Read/Write Payment Initiation Services (PIS) API for Mettle, allowing FCA-authorised third parties to initiate domestic and other payments from a…
+- [Mettle Confirmation of Funds API](https://apis.io/apis/mettle/mettle-confirmation-of-funds-api/) — OBIE Read/Write Confirmation of Funds (CBPII) API for Mettle, letting card-based payment instrument issuers confirm whether funds are available on a…
+- [Mettle ATM API](https://apis.io/apis/mettle/mettle-atm-api/) — Endpoint for getting ATM data
+- [Mettle BCA API](https://apis.io/apis/mettle/mettle-bca-api/) — Endpoint for getting Business Current Account data
+- [Mettle Branch API](https://apis.io/apis/mettle/mettle-branch-api/) — Endpoint for getting Branch data
+- [Mettle CCC API](https://apis.io/apis/mettle/mettle-ccc-api/) — Endpoint for getting Commercial Credit Card data
+- [Mettle PCA API](https://apis.io/apis/mettle/mettle-pca-api/) — Endpoint for getting Personal Current Account data
+- [Mettle SME API](https://apis.io/apis/mettle/mettle-sme-api/) — Endpoint for getting Unsecured SME Loan data
 
-## APIs
+### Published properties
 
-### Mettle Open Data Product API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Mettle's public, unsecured UK Open Banking Open Data (Product) API, exposing reference information about the business current accounts Mettle offers to sole traders and limited companies. Conforms to the OBIE Open Data API standard; no credentials required to read.
+#### MCP servers (1)
 
-- **Human URL:** [https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle](https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle)
-- **Base URL:** `https://api.openbanking.prd-mettle.co.uk/open-banking/v2.3`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [mettle-open-data](https://apis.io/servers/mettle/mettle-open-data/)
 
-- Open Data
-- Business Current Accounts
-- Products
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [OpenAPI](openapi/mettle-open-data-api-openapi.json) — shared OBIE Open Data API standard (Swagger 2.0, v1.3), not a Mettle-proprietary contract
-- [Documentation](https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle)
-- [API Reference](https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle)
+- [Mettle Agentic Access](https://apis.io/agentic-access/mettle/mettle-agentic-access/)
 
-### Mettle Account and Transaction API
+#### Collections (1)
 
-OBIE Read/Write Account & Transaction Information (AIS) API for Mettle business current accounts, exposing accounts, balances, transactions, and related resources to FCA-authorised third parties. FAPI-secured with OAuth2/OIDC, mTLS, and PSD2 strong customer authentication.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://www.bankofapis.com/products/accounts/documentation/mettle](https://www.bankofapis.com/products/accounts/documentation/mettle)
-- **Base URL:** `https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/aisp`
+- [Open Data API](https://apis.io/collections/mettle/open-mettle-open-data-api/)
 
-#### Tags
+#### Overlays (1)
 
-- Account Information
-- Transactions
-- AIS
+OpenAPI overlays, including conversational phrasing for each operation.
 
-#### Properties
+- [Mettle Open Data Api Overlay](https://apis.io/overlays/mettle/mettle-open-data-api-overlay/)
 
-- [Documentation](https://www.bankofapis.com/products/accounts/documentation/mettle)
-- [API Reference](https://www.bankofapis.com/products/accounts/documentation/mettle)
+#### Security (2)
 
-### Mettle Payment Initiation API
+Authentication, trust centre, and vulnerability disclosure.
 
-OBIE Read/Write Payment Initiation Services (PIS) API for Mettle, allowing FCA-authorised third parties to initiate payments from a customer's Mettle account with their consent. FAPI-secured with OAuth2/OIDC, mTLS, and PSD2 strong customer authentication.
+- [Mettle Authentication](https://apis.io/security/mettle/mettle-authentication/)
+- [Mettle Domain Security](https://apis.io/security/mettle/mettle-domain-security/)
 
-- **Human URL:** [https://www.bankofapis.com/products/payments/documentation/mettle](https://www.bankofapis.com/products/payments/documentation/mettle)
-- **Base URL:** `https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/pisp`
+#### OAuth scopes (1)
 
-#### Tags
+The permissions the API asks for.
 
-- Payment Initiation
-- Payments
-- PIS
+- [Mettle Scopes](https://apis.io/scopes/mettle/mettle-scopes/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://www.bankofapis.com/products/payments/documentation/mettle)
-- [API Reference](https://www.bankofapis.com/products/payments/documentation/mettle)
-
-### Mettle Confirmation of Funds API
-
-OBIE Read/Write Confirmation of Funds (CBPII) API for Mettle, letting card-based payment instrument issuers confirm whether funds are available on a customer's Mettle account. FAPI-secured with OAuth2/OIDC, mTLS, and PSD2 strong customer authentication.
-
-- **Human URL:** [https://www.bankofapis.com/products/card-based-payments/documentation/mettle](https://www.bankofapis.com/products/card-based-payments/documentation/mettle)
-- **Base URL:** `https://api.openbanking.prd-mettle.co.uk/open-banking/v3.1/cbpii`
-
-#### Tags
-
-- Confirmation of Funds
-- CBPII
-- Funds Check
-
-#### Properties
-
-- [Documentation](https://www.bankofapis.com/products/card-based-payments/documentation/mettle)
-- [API Reference](https://www.bankofapis.com/products/card-based-payments/documentation/mettle)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.mettle.co.uk/)
-- [Developer Portal](https://www.bankofapis.com/)
 - [Documentation](https://www.bankofapis.com/products/natwest-group-open-banking/products-and-locations/documentation/mettle)
-- [Status Page](https://www.bankofapis.com/performance/service-interruptions)
-- [Blog](https://www.mettle.co.uk/blog/)
-- [LinkedIn](https://www.linkedin.com/company/join-mettle)
 - [Support](https://www.mettle.co.uk/contact-us/)
-- [Terms of Service](https://www.mettle.co.uk/docs/terms-and-conditions/1.5.pdf)
-- [Privacy Policy](https://www.mettle.co.uk/privacy-notice/)
+- [Blog](https://www.mettle.co.uk/blog/)
+- [Compliance](https://www.bankofapis.com/products/natwest-group-open-banking)
+- [Terms of service](https://www.mettle.co.uk/docs/terms-and-conditions/1.5.pdf)
+- [Privacy policy](https://www.mettle.co.uk/privacy-notice/)
+- [Status](https://www.bankofapis.com/performance/service-interruptions)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 35.5 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 20.8 |
+| Access clarity | 57.1 |
+
+**Agent readiness 36.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 44.1** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/mettle/](https://apis.io/providers/mettle/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Mettle: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/mettle/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
